@@ -21,7 +21,7 @@ struct AvocadosView: View {
                 .frame(width: 240, height: 240, alignment: .center)
                 .shadow(color: Color("ColorBlackTransparentDark"), radius: 12, x: 0,  y: 8)
                 .scaleEffect(self.pulsateAnimation ? 1 : 0.9)
-                .opacity(self.pulsateAnimation ? 1: 0.0)
+                .opacity(self.pulsateAnimation ? 1: 0.9)
                 .animation(Animation.easeInOut(duration: 1.5).repeatForever(autoreverses: true), value: pulsateAnimation)
             
             
@@ -58,8 +58,10 @@ Avocado is a powerhouse ingredient at any meal. Enjoy these handpicked avocado r
         )
         .edgesIgnoringSafeArea(.all)
         .onAppear {
-            self.pulsateAnimation.toggle()
+            self.pulsateAnimation = true
+            
         }
+     
     }
 }
 

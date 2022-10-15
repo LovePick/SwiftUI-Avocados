@@ -11,6 +11,7 @@ struct ContentView: View {
     // MARK: - PROPERTY
     var header: [Header] = headersData
     var facts: [Fact] = factsData
+    var recipes: [Recipe] = recipesData
     
     // MARK: - BODY
     var body: some View {
@@ -51,6 +52,19 @@ struct ContentView: View {
                     .padding(.trailing, 20)
                 }//: SCROLL
                 
+                // MARK: - RECIPE CARD
+                Text("Avocado Recipes")
+                    .fontWeight(.bold)
+                    .modifier(TitleModifier())
+                
+                VStack(alignment: .center, spacing: 20) {
+                    ForEach(recipes) { recipe in
+                        RecipeCardView(recipe: recipe)
+                    }
+                }
+                .frame(maxWidth: 640)
+                .padding(.horizontal)
+                
                 
                 // MARK: - FOOTER
                 VStack(alignment: .center, spacing: 20) {
@@ -69,14 +83,14 @@ struct ContentView: View {
                 .frame(maxWidth: 640)
                 .padding()
                 .padding(.bottom, 85)
-                
-                
+              
                 
             }//: VSTACK
             
         }//: SCROLL VIEW
         .edgesIgnoringSafeArea(.all)
-        .padding(.bottom, 85)
+       
+        
     }
 }
 

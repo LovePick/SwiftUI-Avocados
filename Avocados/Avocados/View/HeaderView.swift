@@ -60,10 +60,17 @@ struct HeaderView: View {
             }//: HSTACK
             .frame(width: 285, height: 105, alignment: .center)
             .offset(x: -66, y: showHeadline ? 75 : 220)
-            .animation(slideInAnimation, value: self.showHeadline)
             .onAppear {
-                self.showHeadline.toggle()
+                withAnimation(slideInAnimation) {
+                    self.showHeadline = true
+                }
             }
+            .onDisappear{
+                self.showHeadline = false
+            }
+            
+            
+            
             
             
         }//: ZSTACK
